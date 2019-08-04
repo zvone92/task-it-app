@@ -48,8 +48,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
 
           <ul class="navbar-nav ml-auto">
-            <!--User je uvjek dio request-a -->
-            <!-- Ako user kao objekt postoji možemo provjeravat njegovo stanje -->
+
             {% if user.is_authenticated %}
             <li class="nav-item">
               <a class="nav-link" href="{% url 'add' %}"><span class="oi oi-plus"></span></a>
@@ -79,7 +78,7 @@
 
     <div class="container">
 
-  <!-- Ovdje ce biti sav sadržaj druge stranice -->
+  
       {% block content %}
       {% endblock %}
 
