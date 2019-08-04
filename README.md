@@ -1,4 +1,4 @@
-# task-it-app
+# Task it
 
-task it is a todolist web application with the most basic features, i.e. accounts/login.
+Task it is a todolist web application with the most basic features, i.e. accounts/login.
 
