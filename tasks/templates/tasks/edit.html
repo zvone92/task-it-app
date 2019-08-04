@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+<h1>Edit task</h1>
+{% if error %}
+<br />
+{{error}}
+<br />
+{% endif %}
+
+<form  method="POST" >
+  {% csrf_token %}
+
+  <div class="col-2">
+    {{form}}
+  </div>
+
+  <button type="submit">Save</button>
+</form>
+
+{% endblock %}

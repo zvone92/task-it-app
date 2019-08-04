@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if message %}
+<br>
+{{ message }}
+<br>
+{% endif %}
+
+{% for task in tasks.all %}
+
+ <br/>
+
+<hr>
+<div class="row pt-4">
+  <div class="col-2" onclick="" style="cursor: pointer;">
+    <img src="" class="img-fluid" />
+  </div>
+  <div class="col-6" onclick="window.location='{% url 'detail' task.id %}';" style="cursor: pointer;" >
+    <h3>{{ task.title }}</h3>
+  </div>
+
+
+  <div class="col-4">
+    <a href="javascript:{document.getElementById('task_done{{ task.id }}').submit()}"><button class="btn btn-success btn-sm"><span class="oi oi-check"></span></button></a>
+    <a href="{% url 'edit' task.id %}"><button class="btn btn-primary btn-sm ">Edit</button></a>
+  </div>
+  </div>
+</div>
+<hr>
+
+<form id="task_done{{ task.id }}" method="POST" action="{% url 'task_done' task.id %}">
+  {% csrf_token%}
+  <input type="hidden">
+</form>
+
+{% endfor %}
+
+
+<br/>
+
+<div class="col pt-3">
+  <a href="{% url 'add' %}"> <button class="btn btn-primary btn-lg"  style=";margin:auto;display:block"> <span class="oi oi-plus"></span> Add new task </button> </a>
+</div>
+
+<br/>
+
+
+{% endblock %}
