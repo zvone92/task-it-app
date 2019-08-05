@@ -8,6 +8,14 @@
 <br>
 {% endif %}
 
+<br/>
+
+<div class="col pt-3">
+  <a href="{% url 'add' %}"> <button class="btn btn-primary btn-lg"  style=";margin:auto;display:block"> <span class="oi oi-plus"></span> Add new task </button> </a>
+</div>
+
+<br/>
+
 {% for task in tasks.all %}
 
  <br/>
@@ -38,13 +46,7 @@
 {% endfor %}
 
 
-<br/>
 
-<div class="col pt-3">
-  <a href="{% url 'add' %}"> <button class="btn btn-primary btn-lg"  style=";margin:auto;display:block"> <span class="oi oi-plus"></span> Add new task </button> </a>
-</div>
-
-<br/>
 
 
 {% endblock %}
