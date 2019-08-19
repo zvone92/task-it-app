@@ -16,19 +16,21 @@ def home(request):
 
 @login_required
 def add(request):
-    if request.method == 'POST':
-        task = Task()
-        task.title = request.POST['title']
-        task.details = request.POST['details']
-        task.task_date = request.POST['task_date']
-        task.task_time = request.POST['task_time']
-        task.pub_date = timezone.datetime.now()
-        task.user_profile = request.user
-        task.save()
+
+    form = TaskForm( request.POST or None)
+
+    if form.is_valid():
+
+        task = form.save(commit=False)
+         # commit=False tells Django not to send this to database yet.
+         # until i make some changes to it
+        task.user_profile = request.user # Set the user object
+        task.pub_date = timezone.datetime.now() 
+        task.save() # Now save it to database
         return redirect('home')
 
     else:
-        return render(request, 'tasks/add.html', {'error':'All fields reqired'})
+        return render(request, 'tasks/add.html', {'form':form})
 
 
 def detail(request, task_id):

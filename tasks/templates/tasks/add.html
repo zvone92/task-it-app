@@ -9,36 +9,16 @@
 <br />
 {% endif %}
 
-<form method="POST" action="{% url 'add' %}" enctype="multipart/form-data">
+<form  method="POST" >
   {% csrf_token %}
 
-  Title:
-  <br />
-  <input type="text" name="title" style="width:300px; height:35px;"/>
-  <br />
+  <div class="col-2">
+    {{form}}
+  </div>
 
-  Details:
-  <br />
-  <input type="textbox" name="details" style="width:300px; height:100px;"/>
+  <br/>
 
-  <br />
-
-  Date:
-  <br />
-  <input type="date" name="task_date" value=""/>
-  <br />
-
-  Time:
-  <br />
-  <input type="time" name="task_time" value=""/>
-  <br />
-
-
-
-  <br />
-  <input class="btn btn-primary" type="submit" value="Add new task!" />
-  <br />
-
+  <button class="btn btn-primary" type="submit">Save</button>
 </form>
 
 {% endblock %}
