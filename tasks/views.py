@@ -20,6 +20,7 @@ def add(request):
         task = Task()
         task.title = request.POST['title']
         task.details = request.POST['details']
+        task.task_date = request.POST['task_date']
         task.task_time = request.POST['task_time']
         task.pub_date = timezone.datetime.now()
         task.user_profile = request.user

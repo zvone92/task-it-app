@@ -10,16 +10,22 @@ class Task(models.Model):
 
     details = models.TextField()
 
-    task_time = models.DateTimeField(auto_now=False,blank=True)
+    task_date = models.DateField(auto_now=False,blank=True,null=True)
+
+    task_time = models.TimeField(auto_now=False,blank=True,null=True)
 
     user_profile = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def prettydate(self):
-        return self.pub_date.strftime(' %b %e %Y')
+        try:
+            return self.task_time.strftime(' %b %e %Y')
+
+        except:
+            pass
 
     def summary(self):
         return self.details[:100]
 
-    
+
     def __str__(self):
         return self.title
