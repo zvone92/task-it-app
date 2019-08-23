@@ -3,10 +3,10 @@ from .models import Task
 
 
 
-class Date(forms.DateInput):
+class Date(forms.DateInput): # Date input widget
     input_type = 'date'
 
-class Time(forms.TimeInput):
+class Time(forms.TimeInput): #Time input widget
     input_type = 'time'
 
 

@@ -2,23 +2,34 @@
 
 {% block content %}
 
-<h1>Add new task!</h1>
+<h1>Add your new task here!</h1>
 {% if error %}
 <br />
 {{error}}
 <br />
 {% endif %}
 
-<form  method="POST" >
-  {% csrf_token %}
 
+
+
+
+
+<form  method="POST" >
+
+  {% csrf_token %}
   <div class="col-2">
+
     {{form}}
+
   </div>
 
   <br/>
 
   <button class="btn btn-primary" type="submit">Save</button>
+
 </form>
+
+
+
 
 {% endblock %}
