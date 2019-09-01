@@ -15,3 +15,4 @@ class TaskForm(forms.ModelForm):
         model = Task
         widgets = {'task_date': Date(), 'task_time': Time()}
         fields = ['title', 'details', 'task_date', 'task_time']
+        labels = {'task_date': 'Date', 'task_time': 'Time'}

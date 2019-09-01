@@ -1,24 +1,36 @@
 {% extends 'base.html'%}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
 
-<h1>Edit task</h1>
+<h1>Edit your task here</h1>
+<hr>
 {% if error %}
 <br />
 {{error}}
 <br />
 {% endif %}
 
-<form  method="POST" >
+
+
+
+<form  method="POST">
+
   {% csrf_token %}
 
-  <div class="col-2">
-    {{form}}
+  <div class="row">
+
+    <div class="col-8">
+
+      {{ form|crispy }}
+      <button class="btn btn-primary" type="submit">Save</button>
+
+    </div>
   </div>
 
-  <br/>
 
-  <button class="btn btn-primary" type="submit">Save</button>
+
 </form>
 
 {% endblock %}

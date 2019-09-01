@@ -43,6 +43,9 @@ def edit(request, task_id):
     form = TaskForm( request.POST or None, instance=task)
 
     if form.is_valid():
+
+        task = form.save(commit=False)
+        task.pub_date = timezone.datetime.now()
         form.save()
         return redirect('home')
 

@@ -2,16 +2,26 @@
 
 {% block content %}
 
+<br/>
 
-<div class="row pt-3">
-  <div class="col-6">
+<div class="card border-dark mb-3">
+  <h6> Title:</h6>
+  <div class="card-header">
     <h1>{{ task.title }}</h1>
-    <hr>
-    <p>{{ task.details}}</p>
-    <hr>
-    <p>{{ task.task_time }}</p>
-    <hr>
-    <p>{{ task.task_date }}</p>
+  </div>
+  <h6> Details:</h6>
+  <div class="card-body">
+
+    <h5>{{ task.details }}</h5>
+
+  </div>
+  <hr>
+  <h6> Scheduled on:</h6>
+  <div class="card-body"><span class="oi oi-calendar"></span> {{ task.task_date }}</div>
+
+  <div class="card-body"><span class="oi oi-clock"></span> {{ task.task_time }}</div>
+  <hr>
+  <div class="text-muted"> Updated {{ task.pub_date }}</div>
 </div>
 
 

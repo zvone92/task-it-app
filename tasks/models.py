@@ -8,7 +8,7 @@ class Task(models.Model):
 
     pub_date = models.DateTimeField() # Task publishing date
 
-    details = models.TextField() # Details about the task
+    details = models.TextField(blank=True) # Details about the task
 
     task_date = models.DateField(auto_now=False,blank=True,null=True)
 
